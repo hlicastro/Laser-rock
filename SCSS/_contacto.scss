@@ -1,4 +1,7 @@
-
+.TituloContactos{
+    color: red;
+    text-align: center;
+}
 .formularioDeContacto{
     padding: 0%;
     display: flex ;
@@ -18,7 +21,7 @@
         padding: 2%;
     
         &__textArea{
-            border: none;
+            border: solid 1px grey;
             margin: auto;
             margin-top: 20px;
             width: 100%;
@@ -27,7 +30,7 @@
     }
     .inputBox{
         padding: 10px;
-        border: none;
+        border: solid 1px grey;
         border-radius: 3px;
         width: 100%;
         &:focus{
@@ -35,6 +38,7 @@
         }
     }   
     .botonContacto{
+        background-color: red;
         padding: 10px;
         margin: 10px;
 
