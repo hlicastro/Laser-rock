@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comunícate con nosotros para realizar tus pedidos y consultas.">
+    <meta name="keywords"  content="Puesto mascotas, redes, contacto, teléfono, pedidos.">
+    <title>Puesto Mascotas - Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../Img/Logo Portada fi.png" >
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg text-light  ">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img height="100" class="logo" src="./imagenes/Laser logo.jpg" alt="" ></a>
+              <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link text-light " aria-current="page" href="#">Home</a>
+                  <a class="nav-link text-danger bg-dark "  href="#">Comprar</a>
+                  <a class="nav-link text-light"  href="#">Contacto</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+    </header>
+
+    <main>
+        <!--Formulario de contacto-->
+        <h1 class="TituloContactos">COMUNICATE CON NOSOTROS</h1>
+        <form action="#" class="formularioDeContacto">
+            <fieldset class="formularioDeContacto__datos"> <legend class="textoContacto">Datos de Contacto</legend>
+        
+                <div class="formularioDeContacto__dato">
+                    <p class="textoContacto">Escriba su nombre *</p>
+                    <input class="inputBox" type="text" name="Nombre" requiered >
+                </div>
+                <div class="formularioDeContacto__dato">   
+                    <p class="textoContacto">Escriba su apellido</p>
+                    <input class="inputBox" type="text" name="Apellido" >                
+                </div>
+                
+                <div class="formularioDeContacto__dato">
+                    <p class="textoContacto"> Teléfono de contacto * </p>
+                    <input class="inputBox" type="number" name="tel" requiered placeholder="Ingresar solo numeros">
+                </div>
+                
+                <div class="formularioDeContacto__dato"> 
+                    <p class="textoContacto"> Ingrese su correo electrónico * </p>
+                    <input class="inputBox" type="email" name="email" requiered placeholder="ejemplo@puestomascotas.com">
+                </div>
+                
+                <div class="formularioDeContacto__dato">
+                    <p class="textoContacto">Indique por qué animal realiza la consulta</p>
+                    <input type="radio" name="tipo" value="Perro"> Perro
+                    <input type="radio" name="tipo" value="Gato"> Gato
+                    <input type="radio" name="tipo" value="Otro"> Otro
+                </div>
+                
+                <div class="formularioDeContacto__dato">
+                    <label class="textoContacto" for="comentario">Ingrese su consulta:</label>
+                    <textarea class="formularioDeContacto__datos__textArea" name="comentario" id="" cols="60" rows="8"></textarea>
+                </div>
+                
+                <div class="formularioDeContacto__dato">
+                    <input class="botonContacto" type="submit" value="Enviar formulario"/>
+                    <input class="botonContacto" type="reset" value="Limpiar formulario"/>  
+                </div>
+
+            </fieldset>
+        </form>        
+    </main>
+
+    <footer class="footer sticky-bottom">
+        <section class="footer__redes">
+            <a href="https://www.instagram.com/puestomascotas/" target="_bkank"> <img class="footer__redes__img" src="./imagenes/instagram.png" alt="instagram"></a>
+            <a href="https://www.facebook.com/puestomascotas" target="_bkank"><img class="footer__redes__img" src="./imagenes/facebook.png" alt="Facebook" ></a>
+            <a href="https://wa.me/+541158305862" target="_bkank"><img class="footer__redes__img" src="./imagenes/whatsapp.png" alt="Watsapp" ></a>
+        </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

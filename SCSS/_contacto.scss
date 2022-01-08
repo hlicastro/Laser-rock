@@ -1,0 +1,42 @@
+
+.formularioDeContacto{
+    padding: 0%;
+    display: flex ;
+    justify-content:center;
+    margin: auto;
+    &__dato{
+        margin: 5%;
+
+    }
+    .textoContacto{
+        color: white;
+    }
+    &__datos{
+        border: solid;
+        border-radius: 5%;
+        margin: 5px 10% 5px 10%;
+        padding: 2%;
+    
+        &__textArea{
+            border: none;
+            margin: auto;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 3px;
+        }
+    }
+    .inputBox{
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+        &:focus{
+            border: 1px solid ;
+        }
+    }   
+    .botonContacto{
+        padding: 10px;
+        margin: 10px;
+
+    }
+}
