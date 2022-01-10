@@ -15,13 +15,21 @@ header .nav-link {
   margin-left: 3%;
 }
 
-.carousel {
-  width: 10%;
+.imagenes__item {
+  margin: 10px;
+}
+
+.carouselIndex {
+  margin: 2px;
+  margin-bottom: 20px;
+}
+
+.carteleraIndex {
+  background-color: white;
+  padding-top: 6px;
 }
 
 .footer {
-  background: -webkit-gradient(linear, left bottom, left top, from(#5c5c5c), to(#9D9D9D));
-  background: linear-gradient(to top, #5c5c5c, #9D9D9D);
   position: absolute boton;
   padding-top: 5px;
 }
@@ -29,7 +37,7 @@ header .nav-link {
 .footer__copyRigth {
   color: rgba(245, 245, 245, 0.726);
   text-align: center;
-  font-size: .8rem;
+  font-size: .6rem;
 }
 
 .footer .footer__redes__img {
@@ -99,5 +107,53 @@ header .nav-link {
   background-color: red;
   padding: 10px;
   margin: 10px;
+}
+
+/*Arma el colage de imagenes de Accesorios*/
+.accesorios {
+  margin: 5%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  gap: 20px;
+  justify-items: center;
+}
+
+.accesorios__elementos {
+  width: 300px;
+  height: 500px;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  border-radius: 5px;
+  border: solid 1px gray;
+  color: whitesmoke;
+}
+
+.accesorios__elementos img {
+  width: 100%;
+}
+
+.accesorios__elementos h3 {
+  text-align: center;
+}
+
+.accesorios__elementos p {
+  text-align: center;
+}
+
+.accesorios__elementos button {
+  margin: 5%;
+  width: 90%;
+}
+
+.accesorios__elementos:hover {
+  border: solid 6px gainsboro;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 /*# sourceMappingURL=Estilo.css.map */

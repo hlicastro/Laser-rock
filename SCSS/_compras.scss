@@ -1,0 +1,38 @@
+
+/*Arma el colage de imagenes de Accesorios*/
+
+.accesorios{
+    margin: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    justify-items: center;
+    
+    &__elementos{
+        width: 300px;
+        height: 500px;
+        display: grid;
+        align-content: space-between;
+        border-radius: 5px;
+        border: solid 1px gray;
+        color: whitesmoke;
+        img{
+            width: 100%;
+        }
+        h3{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        button{
+            margin: 5%;
+            width: 90%;
+        }
+        &:hover{
+            border: solid 6px gainsboro;
+            transform: scale(1.03);
+        }
+    }
+}
