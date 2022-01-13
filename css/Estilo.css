@@ -109,6 +109,11 @@ header .nav-link {
   margin: 10px;
 }
 
+.tituloCompras {
+  text-align: center;
+  font-size: 6rem;
+}
+
 /*Arma el colage de imagenes de Accesorios*/
 .accesorios {
   margin: 5%;
