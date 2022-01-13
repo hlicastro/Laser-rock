@@ -104,17 +104,18 @@ const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2
 const stockTotal = new StockTotal();
 const carritoCompra = new CarritoDeCompras(usuario);
 
-stockTotal.arrayArticulos.push(articulo1);
+//se ingresan desordenados solo con el objeto de acomodar los mismos mendiante el sort
 stockTotal.arrayArticulos.push(articulo2);
-stockTotal.arrayArticulos.push(articulo3);
 stockTotal.arrayArticulos.push(articulo4);
 stockTotal.arrayArticulos.push(articulo5);
-stockTotal.arrayArticulos.push(articulo6);
 stockTotal.arrayArticulos.push(articulo7);
+stockTotal.arrayArticulos.push(articulo3);
+stockTotal.arrayArticulos.push(articulo1);
 stockTotal.arrayArticulos.push(articulo8);
+stockTotal.arrayArticulos.push(articulo6);
 
-
-
+//Ordena el array para evitar que se encuentren desordenados los items 
+stockTotal.arrayArticulos.sort((a,b)=>{return a.item-b.item})
 
 //INGRESO DE DATOS
 
@@ -135,3 +136,6 @@ do {
 //se muestra el pedido final
 carritoCompra.subTotalCalc()
 alert(carritoCompra.armarlistaFinal() )
+
+
+
