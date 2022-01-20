@@ -13,6 +13,27 @@ class StockTotal {
     
 
 }
+function ingresoValido(ingreso){
+    if (ingreso == null){
+        return true;
+    } else{
+        for (const articulo of stockTotal.arrayArticulos){
+            if(ingreso == articulo.item){
+                return true
+            }
+        }
+    }
+    return false;
+} 
+//Busca el producto ingresado 
+function ingresoProducto (ingreso){
+    for (const iterator of stockTotal.arrayArticulos) {
+        if (ingreso ==iterator.item){
+            return iterator
+            
+        }
+    }
+}
 class Articulo{
     constructor(item, artista, titulo, tipo, precio,stock,stockVenta , imagen) {
         this.item = item;
@@ -23,6 +44,60 @@ class Articulo{
         this.stock  = stock;
         this.stockVenta = stockVenta;
         this.imagen = imagen;
+    }
+}
+class CarritoDeCompras{//ok
+    constructor(usuario){
+        this.date = 1;
+        this.usuario = usuario;
+        this.listaCompra= [];
+        this.subTotal=0;
+    }
+    //Calcula el total
+    subTotalCalc(){
+        this.subTotal=0;
+        for (const item of carritoCompra.listaCompra){
+            this.subTotal += (item.precio*item.stockVenta);
+        }
+    }
+    cargarStock(valor){
+        alert(carritoCompra.listaCompra.length)
+        if(carritoCompra.listaCompra.length==0){
+            carritoCompra.listaCompra.push(ingresotemp)
+
+        }
+        else{
+            let check =true
+        for (const v of carritoCompra.listaCompra) {
+            if(v.item == valor.item){
+                v.stockVenta = v.stockVenta + 1
+                check=false
+                
+            }
+            
+        }
+        if(check){
+            carritoCompra.listaCompra.push(ingresotemp)
+            
+        }
+    }}
+    //genera la lista final del pedido 
+    armarlistaFinal(){
+        let listaPedido= usuario +"\nTu pedido esta compusto por: "  + carritoCompra.listaCompra.length +" articulos, por un total de $" + carritoCompra.subTotal +"\n\nDETALLE \n"
+            let i=1
+            for (const listar of carritoCompra.listaCompra) {
+            listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} ${listar.stockVenta} \n`) 
+        }
+        return listaPedido
+    }
+    //genera la lista que se muestra antes de ingresar un articulo
+    armarlistaStock(){
+        let listaPedido="ingrese el codigo del producto que desea agregar al carrito o precione cancelar para finalizar el pedido\n\n"
+            let i=1
+            for (const listar of stockTotal.arrayArticulos) {
+            listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} quedan en Stock: "${listar.stock}". \n`) 
+        }
+        return listaPedido
     }
 }
 
@@ -90,10 +165,43 @@ const iniciarCompra = () => {
 
 
 iniciarCompra()
+do {
+    ingreso = prompt( carritoCompra.armarlistaStock() )
+    ingresotemp=ingresoProducto(ingreso)
+    if(ingreso!=null){
+    if  (ingresoValido(ingreso)){
+        if (ingresotemp.verStock()) {
+            carritoCompra.cargarStock(ingresotemp)
+           // carritoCompra.listaCompra.push(ingresotemp)
 
+        }else{
+            alert("Momentaneamente este producto no tiene STOCK")
 
+        }
+    }else{alert("el codigo de producto ingresado es incorrecto")}
+    }
+}while (ingreso!=null);
+//se muestra el pedido final
+carritoCompra.subTotalCalc()
+alert(carritoCompra.armarlistaFinal() )
+let elementosCarrito = document.getElementById("")
+let pos
+iniciarCompra()
 function eliminarNodo() {
-    let lista = document.querySelector(".accesorios")
-    alert("asdadasd")
-    lista.jQueryempty(".accesorios")
+    let pos =0
+    let buscar = document.getElementById('buscador').value
+    const lista = document.querySelector(".accesorios")
+    for (const a of stockTotal.arrayArticulos) {
+        pos = pos +1
+        if(buscar!=a.artista){
+            const div = document.querySelector(`.accesorios__elementos:nth-child(${pos})`)
+            lista.removeChild(div)
+            pos = pos -1
+
+        }
+    }
+    
 }
+
+
+

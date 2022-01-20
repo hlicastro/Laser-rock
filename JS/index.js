@@ -1,6 +1,6 @@
 let ingreso = ""
 //solicita el nombre para realizar el pedido
-let usuario =prompt("ingrese su nombre")
+let usuario ="HERNAN"//prompt("ingrese su nombre")
 //verifica que el valor ingresado sea valido
 function ingresoValido(ingreso){
     if (ingreso == null){

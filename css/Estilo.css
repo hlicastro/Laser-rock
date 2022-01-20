@@ -115,6 +115,10 @@ header .nav-link {
 }
 
 /*Arma el colage de imagenes de Accesorios*/
+.buscador {
+  margin: 2%;
+}
+
 .accesorios {
   margin: 5%;
   display: -ms-grid;
@@ -160,5 +164,9 @@ header .nav-link {
   border: solid 6px gainsboro;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
+}
+
+button {
+  background-color: 255;
 }
 /*# sourceMappingURL=Estilo.css.map */
