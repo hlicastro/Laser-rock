@@ -1,7 +1,5 @@
-let ingreso = ""
-//solicita el nombre para realizar el pedido
-let usuario ="HERNAN"//prompt("ingrese su nombre")
-//verifica que el valor ingresado sea valido
+const STOCKARTICULOS = 'arrayArticulos'
+
 function ingresoValido(ingreso){
     if (ingreso == null){
         return true;
@@ -23,8 +21,18 @@ function ingresoProducto (ingreso){
         }
     }
 }
+class StockTotal {
+    constructor() {
+        this.arrayArticulos = []
+        
+    }
+    addArtc(pedido) {
+        this.arrayArticulos.push(pedido)
+    
+    }
+    
 
-//Se crea articulos
+}
 class Articulo{
     constructor(item, artista, titulo, tipo, precio,stock,stockVenta , imagen) {
         this.item = item;
@@ -34,10 +42,9 @@ class Articulo{
         this.precio  = precio;
         this.stock  = stock;
         this.stockVenta = stockVenta;
-        this.imagen = imagen
+        this.imagen = imagen;
     }
-    
-    //verifica si el producto esta en Stock
+
     verStock(){
         if (this.stock == 0){
             return false;
@@ -49,21 +56,11 @@ class Articulo{
             return true;
         }
     } 
-    
-    
 }
-class StockTotal{
-    constructor (){
-        this.arrayArticulos = [];
-    }
-    
-
-}
-//Proceso de compras
 class CarritoDeCompras{//ok
-    constructor(usuario){
+    constructor(){
         this.date = 1;
-        this.usuario = usuario;
+        this.usuario = "usuario";
         this.listaCompra= [];
         this.subTotal=0;
     }
@@ -75,7 +72,6 @@ class CarritoDeCompras{//ok
         }
     }
     cargarStock(valor){
-        alert(carritoCompra.listaCompra.length)
         if(carritoCompra.listaCompra.length==0){
             carritoCompra.listaCompra.push(ingresotemp)
 
@@ -97,7 +93,7 @@ class CarritoDeCompras{//ok
     }}
     //genera la lista final del pedido 
     armarlistaFinal(){
-        let listaPedido= usuario +"\nTu pedido esta compusto por: "  + carritoCompra.listaCompra.length +" articulos, por un total de $" + carritoCompra.subTotal +"\n\nDETALLE \n"
+        let listaPedido= this.usuario +"\nTu pedido esta compusto por: "  + carritoCompra.listaCompra.length +" articulos, por un total de $" + carritoCompra.subTotal +"\n\nDETALLE \n"
             let i=1
             for (const listar of carritoCompra.listaCompra) {
             listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} ${listar.stockVenta} \n`) 
@@ -114,41 +110,87 @@ class CarritoDeCompras{//ok
         return listaPedido
     }
 }
-//Se carga el Stock en el Array 
-const articulo1 = new Articulo(1, "La Renga", "Despedazados por mil partes","CD",1580, 0,1,"./imagenes/tapas/Despedazadopormilpartes.jpg");
-const articulo2 = new Articulo(2, "Divididos", "La era de la boludez","CD",1450, 4,1, "./imagenes/tapas/La_Era_de_la_Boludez.jpg");
-const articulo3 = new Articulo(3, "Las Pastillas del Abuelo", "2020","CD",1390,2,1,"./imagenes/tapas/Las pastillas del abuelo 2020.jpg");
+const carritoCompra = new CarritoDeCompras();
+let  stockTotal = new StockTotal();
+const articulo1 = new Articulo(1, "La Renga", "Despedazados por mil partes","CD",1580, 2,1,"./imagenes/tapas/Despedazadopormilpartes.jpg")
+const articulo2 = new Articulo(2, "Divididos", "La era de la boludez","CD",1450, 4,1, "./imagenes/tapas/La_Era_de_la_Boludez.jpg")
+const articulo3 = new Articulo(3, "Las Pastillas del Abuelo", "2020","CD",1390,2,1,"./imagenes/tapas/Las pastillas del abuelo 2020.jpg")
 const articulo4 = new Articulo(4, "The Rolling Stones", "On Air","CD",2120,5,1,"./imagenes/tapas/On air Roling Stones.jpg");
 const articulo5 = new Articulo(5, "Los Piojos", "Ay, Ay, Ay","CD",1560,9,1,"./imagenes/tapas/piojos ayayay.jpg");
 const articulo6 = new Articulo(6, "Spinetta", "No mires Atas","CD",2110,3,1,"./imagenes/tapas/Ya no mires atas Spinetta.jpg");
-const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,1,1, "./imagenes/tapas/ACDC Back In Black 1.jpg");
+const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,2,1, "./imagenes/tapas/ACDC Back In Black 1.jpg");
 const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2,1,"./imagenes/tapas/Hojo del huracan 1.jpg");
-const stockTotal = new StockTotal();
-const carritoCompra = new CarritoDeCompras(usuario);
+stockTotal.addArtc(articulo1)
+stockTotal.addArtc(articulo2)
+stockTotal.addArtc(articulo3)
+stockTotal.addArtc(articulo4)
+stockTotal.addArtc(articulo5)
+stockTotal.addArtc(articulo6)
+stockTotal.addArtc(articulo7)
+stockTotal.addArtc(articulo8)
 
-//se ingresan desordenados solo con el objeto de acomodar los mismos mendiante el sort
-stockTotal.arrayArticulos.push(articulo2);
-stockTotal.arrayArticulos.push(articulo4);
-stockTotal.arrayArticulos.push(articulo5);
-stockTotal.arrayArticulos.push(articulo7);
-stockTotal.arrayArticulos.push(articulo3);
-stockTotal.arrayArticulos.push(articulo1);
-stockTotal.arrayArticulos.push(articulo8);
-stockTotal.arrayArticulos.push(articulo6);
 
-//Ordena el array para evitar que se encuentren desordenados los items 
-stockTotal.arrayArticulos.sort((a,b)=>{return a.item-b.item})
 
-//INGRESO DE DATOS
+const iniciarCompra = () => {
+    /* Init data */
+    const tempCarrit = JSON.parse(sessionStorage.getItem(STOCKARTICULOS))
+    if (tempCarrit == null || tempCarrit == undefined) {
+        sessionStorage.setItem(STOCKARTICULOS, JSON.stringify(stockTotal.arrayArticulos))
+    } else {
+        stockTotal.arrayArticulos = tempCarrit;
+    }
+
+
+
+
+    /* genera html */
+    const lista = document.querySelector(".accesorios")
+    stockTotal.arrayArticulos.map((pedido) => {
+        const miniContenedor = document.createElement('div')
+        const image = document.createElement('img')
+        const artista = document.createElement("h3")
+        const titulo = document.createElement('p')
+        const importe = document.createElement('h3')
+        const stock = document.createElement('p')
+
+
+        miniContenedor.className = "accesorios__elementos"
+        image.src = pedido.imagen
+        artista.textContent = pedido.artista
+        titulo.textContent = pedido.titulo
+        importe.textContent = `$ ${pedido.precio}`
+        stock.textContent = `Hay en Stock: ${pedido.stock}`
+        stock.className ="stockMod"
+        image.width = 300
+
+        lista.appendChild(miniContenedor)
+        miniContenedor.appendChild(image)
+        miniContenedor.appendChild(artista)
+        miniContenedor.appendChild(titulo)
+        miniContenedor.appendChild(importe)
+        miniContenedor.appendChild(stock)
+        
+    })
+}
+function modificarStockDom(pos,ingresotemp){
+    let stockModificar = document.getElementsByClassName("stockMod")
+    stockModificar[pos-1].textContent= "Hay en Stock: " + ingresotemp.stock
+
+}
+
+iniciarCompra()
+function comprar() {
+    let ingreso = ""
 
 do {
+
     ingreso = prompt( carritoCompra.armarlistaStock() )
     ingresotemp=ingresoProducto(ingreso)
     if(ingreso!=null){
     if  (ingresoValido(ingreso)){
         if (ingresotemp.verStock()) {
             carritoCompra.cargarStock(ingresotemp)
-           // carritoCompra.listaCompra.push(ingresotemp)
+            modificarStockDom(ingreso,ingresotemp)
 
         }else{
             alert("Momentaneamente este producto no tiene STOCK")
@@ -160,6 +202,26 @@ do {
 //se muestra el pedido final
 carritoCompra.subTotalCalc()
 alert(carritoCompra.armarlistaFinal() )
-let elementosCarrito = document.getElementById("")
+
+}
+
+
+function eliminarNodo() {
+    let pos =0
+    let buscar = document.getElementById('buscador').value
+    const lista = document.querySelector(".accesorios")
+    if(buscar!=""){
+    for (const a of stockTotal.arrayArticulos) {
+        pos = pos +1
+        if(buscar!=a.artista){
+            const div = document.querySelector(`.accesorios__elementos:nth-child(${pos})`)
+            lista.removeChild(div)
+            pos = pos -1
+
+        }
+    }
+}
+}
+
 
 
