@@ -26,14 +26,15 @@ function ingresoProducto (ingreso){
 
 //Se crea articulos
 class Articulo{
-    constructor(item, artista, titulo, tipo, precio,stock,stockVenta) {
+    constructor(item, artista, titulo, tipo, precio,stock,stockVenta , imagen) {
         this.item = item;
         this.artista   = artista;
         this.titulo  = titulo;
         this.tipo  = tipo;
         this.precio  = precio;
         this.stock  = stock;
-        this.stockVenta = stockVenta
+        this.stockVenta = stockVenta;
+        this.imagen = imagen
     }
     
     //verifica si el producto esta en Stock
@@ -70,15 +71,36 @@ class CarritoDeCompras{//ok
     subTotalCalc(){
         this.subTotal=0;
         for (const item of carritoCompra.listaCompra){
-            this.subTotal += item.precio;
+            this.subTotal += (item.precio*item.stockVenta);
         }
     }
+    cargarStock(valor){
+        alert(carritoCompra.listaCompra.length)
+        if(carritoCompra.listaCompra.length==0){
+            carritoCompra.listaCompra.push(ingresotemp)
+
+        }
+        else{
+            let check =true
+        for (const v of carritoCompra.listaCompra) {
+            if(v.item == valor.item){
+                v.stockVenta = v.stockVenta + 1
+                check=false
+                
+            }
+            
+        }
+        if(check){
+            carritoCompra.listaCompra.push(ingresotemp)
+            
+        }
+    }}
     //genera la lista final del pedido 
     armarlistaFinal(){
         let listaPedido= usuario +"\nTu pedido esta compusto por: "  + carritoCompra.listaCompra.length +" articulos, por un total de $" + carritoCompra.subTotal +"\n\nDETALLE \n"
             let i=1
             for (const listar of carritoCompra.listaCompra) {
-            listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} \n`) 
+            listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} ${listar.stockVenta} \n`) 
         }
         return listaPedido
     }
@@ -93,14 +115,14 @@ class CarritoDeCompras{//ok
     }
 }
 //Se carga el Stock en el Array 
-const articulo1 = new Articulo(1, "La Renga", "Despedazados por mil partes","CD",1580, 0,1);
-const articulo2 = new Articulo(2, "Divididos", "La era de la boludez","CD",1450, 4,1);
-const articulo3 = new Articulo(3, "Las Pastillas del Abuelo", "2020","CD",1390,2,1);
-const articulo4 = new Articulo(4, "The Rolling Stones", "On Air","CD",2120,5,1);
-const articulo5 = new Articulo(5, "Los Piojos", "Ay, Ay, Ay","CD",1560,9,1);
-const articulo6 = new Articulo(6, "Spinetta", "No mires Atas","CD",2110,3,1);
-const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,1,1);
-const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2,1);
+const articulo1 = new Articulo(1, "La Renga", "Despedazados por mil partes","CD",1580, 0,1,"./imagenes/tapas/Despedazadopormilpartes.jpg");
+const articulo2 = new Articulo(2, "Divididos", "La era de la boludez","CD",1450, 4,1, "./imagenes/tapas/La_Era_de_la_Boludez.jpg");
+const articulo3 = new Articulo(3, "Las Pastillas del Abuelo", "2020","CD",1390,2,1,"./imagenes/tapas/Las pastillas del abuelo 2020.jpg");
+const articulo4 = new Articulo(4, "The Rolling Stones", "On Air","CD",2120,5,1,"./imagenes/tapas/On air Roling Stones.jpg");
+const articulo5 = new Articulo(5, "Los Piojos", "Ay, Ay, Ay","CD",1560,9,1,"./imagenes/tapas/piojos ayayay.jpg");
+const articulo6 = new Articulo(6, "Spinetta", "No mires Atas","CD",2110,3,1,"./imagenes/tapas/Ya no mires atas Spinetta.jpg");
+const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,1,1, "./imagenes/tapas/ACDC Back In Black 1.jpg");
+const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2,1,"./imagenes/tapas/Hojo del huracan 1.jpg");
 const stockTotal = new StockTotal();
 const carritoCompra = new CarritoDeCompras(usuario);
 
@@ -125,7 +147,9 @@ do {
     if(ingreso!=null){
     if  (ingresoValido(ingreso)){
         if (ingresotemp.verStock()) {
-            carritoCompra.listaCompra.push(ingresotemp)
+            carritoCompra.cargarStock(ingresotemp)
+           // carritoCompra.listaCompra.push(ingresotemp)
+
         }else{
             alert("Momentaneamente este producto no tiene STOCK")
 
@@ -136,6 +160,6 @@ do {
 //se muestra el pedido final
 carritoCompra.subTotalCalc()
 alert(carritoCompra.armarlistaFinal() )
-
+let elementosCarrito = document.getElementById("")
 
 
