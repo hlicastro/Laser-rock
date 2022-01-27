@@ -18,14 +18,17 @@
     <nav class="navbar navbar-expand-lg text-light  ">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><img height="100" class="logo" src="./imagenes/Laser logo.jpg" alt="" ></a>
-          <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler bg-danger " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link text-light " aria-current="page" href="./index.html">Home</a>
               <a class="nav-link text-danger bg-dark "  href="./Compras.html">Comprar</a>
               <a class="nav-link text-light"  href="./Contacto.html">Contacto</a>
+              
+              <a id="btnComprar" class="nav-link text-light"  href=# >Finalizar Comprar</a>
+
             </div>
           </div>
         </div>
@@ -35,9 +38,12 @@
       <h2 class="tituloCompras text-danger" >PRODUCTOS</h2>
       <body>
         <div class="buscador">
-        <input class ="bg-danger" placeholder="Escriba aqui" type="text" id="buscador">
-        <button class ="bg-danger" onclick="eliminarNodo()">Eliminar nodo</button>
+         <h3>Buscar por artista</h3> 
+        <input class ="botonN text-danger" placeholder="Ingrese un artista   " type="text" id="buscador">
+        <button id="btnBuscar"> Buscar </button>
+        <button id="btnRestaurar"> Restaurar </button>
       </div>
+
         <div class="accesorios">
         </div>
     </main>
@@ -50,9 +56,12 @@
       <h5 class="footer__copyRigth">Todos los derechos recervados Hugo Hernan Licastro</h5>
 
   </footer>
-  <script src="./JS/carritocondom.js"></script>
 
+    <script src="./JS/eventos.js"></script>
+    <script src="./JS/eventoCompra.js"></script>
     <script src="./JS/index.js"></script>
+    <script src="./JS/eventoCompra.js"></script>
+    <script src="./JS/CargaStorage.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 

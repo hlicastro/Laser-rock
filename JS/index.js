@@ -1,5 +1,3 @@
-const STOCKARTICULOS = 'arrayArticulos'
-
 function ingresoValido(ingreso){
     if (ingreso == null){
         return true;
@@ -57,7 +55,7 @@ class Articulo{
         }
     } 
 }
-class CarritoDeCompras{//ok
+class CarritoDeCompras{
     constructor(){
         this.date = 1;
         this.usuario = "usuario";
@@ -109,7 +107,9 @@ class CarritoDeCompras{//ok
         }
         return listaPedido
     }
+    
 }
+
 const carritoCompra = new CarritoDeCompras();
 let  stockTotal = new StockTotal();
 const articulo1 = new Articulo(1, "La Renga", "Despedazados por mil partes","CD",1580, 2,1,"./imagenes/tapas/Despedazadopormilpartes.jpg")
@@ -120,29 +120,23 @@ const articulo5 = new Articulo(5, "Los Piojos", "Ay, Ay, Ay","CD",1560,9,1,"./im
 const articulo6 = new Articulo(6, "Spinetta", "No mires Atas","CD",2110,3,1,"./imagenes/tapas/Ya no mires atas Spinetta.jpg");
 const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,2,1, "./imagenes/tapas/ACDC Back In Black 1.jpg");
 const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2,1,"./imagenes/tapas/Hojo del huracan 1.jpg");
+
+
 stockTotal.addArtc(articulo1)
-stockTotal.addArtc(articulo2)
-stockTotal.addArtc(articulo3)
-stockTotal.addArtc(articulo4)
-stockTotal.addArtc(articulo5)
-stockTotal.addArtc(articulo6)
-stockTotal.addArtc(articulo7)
-stockTotal.addArtc(articulo8)
+    stockTotal.addArtc(articulo2)
+    stockTotal.addArtc(articulo3)
+    stockTotal.addArtc(articulo4)
+    stockTotal.addArtc(articulo5)
+    stockTotal.addArtc(articulo6)
+    stockTotal.addArtc(articulo7)
+    stockTotal.addArtc(articulo8)
+
+
+    
 
 
 
 const iniciarCompra = () => {
-    /* Init data */
-    const tempCarrit = JSON.parse(sessionStorage.getItem(STOCKARTICULOS))
-    if (tempCarrit == null || tempCarrit == undefined) {
-        sessionStorage.setItem(STOCKARTICULOS, JSON.stringify(stockTotal.arrayArticulos))
-    } else {
-        stockTotal.arrayArticulos = tempCarrit;
-    }
-
-
-
-
     /* genera html */
     const lista = document.querySelector(".accesorios")
     stockTotal.arrayArticulos.map((pedido) => {
@@ -152,7 +146,7 @@ const iniciarCompra = () => {
         const titulo = document.createElement('p')
         const importe = document.createElement('h3')
         const stock = document.createElement('p')
-
+        const boton = document.createElement("button")
 
         miniContenedor.className = "accesorios__elementos"
         image.src = pedido.imagen
@@ -162,6 +156,8 @@ const iniciarCompra = () => {
         stock.textContent = `Hay en Stock: ${pedido.stock}`
         stock.className ="stockMod"
         image.width = 300
+        boton.className= "art"+pedido.item
+        boton.textContent = "Comprar"
 
         lista.appendChild(miniContenedor)
         miniContenedor.appendChild(image)
@@ -169,7 +165,8 @@ const iniciarCompra = () => {
         miniContenedor.appendChild(titulo)
         miniContenedor.appendChild(importe)
         miniContenedor.appendChild(stock)
-        
+        miniContenedor.appendChild(boton)
+
     })
 }
 function modificarStockDom(pos,ingresotemp){
@@ -180,31 +177,32 @@ function modificarStockDom(pos,ingresotemp){
 
 iniciarCompra()
 function comprar() {
-    let ingreso = ""
-
-do {
-
-    ingreso = prompt( carritoCompra.armarlistaStock() )
-    ingresotemp=ingresoProducto(ingreso)
-    if(ingreso!=null){
-    if  (ingresoValido(ingreso)){
-        if (ingresotemp.verStock()) {
-            carritoCompra.cargarStock(ingresotemp)
-            modificarStockDom(ingreso,ingresotemp)
-
-        }else{
-            alert("Momentaneamente este producto no tiene STOCK")
-
-        }
-    }else{alert("el codigo de producto ingresado es incorrecto")}
-    }
-}while (ingreso!=null);
 //se muestra el pedido final
-carritoCompra.subTotalCalc()
-alert(carritoCompra.armarlistaFinal() )
+    carritoCompra.subTotalCalc()
+    if (carritoCompra.subTotal==0){
+        alert("Su carrito no tiene articulos")}
+    else{
+        alert(carritoCompra.armarlistaFinal() )
+        carritoCompra.listaCompra=[]
+        localStorage.setItem("comprarLista", JSON.stringify())
+        localStorage.removeItem("carritoLista");
 
 }
 
+}
+function limpiarPantalla() {
+
+    const lista = document.querySelector(".accesorios")
+    for (const a of stockTotal.arrayArticulos) {
+        const div = document.querySelector(`.accesorios__elementos`)
+
+        if (div!=null){
+
+        lista.removeChild(div)
+        }
+        }
+    
+}
 
 function eliminarNodo() {
     let pos =0
@@ -216,12 +214,46 @@ function eliminarNodo() {
         if(buscar!=a.artista){
             const div = document.querySelector(`.accesorios__elementos:nth-child(${pos})`)
             lista.removeChild(div)
-            pos = pos -1
+            pos = pos-1
+        }
+        
+    }
+    if (pos==0) {
+        alert("No ingresaste un artista valido\n Intente nuevamente con otro artista")
+        carritoDeCero() 
+        clickCompra()
+    }
+    
+}
+}
+function carritoDeCero() {
+    limpiarPantalla()
+    iniciarCompra()
+    clickCompra()
+
+}
+function sumarArt(index) {
+    ingreso = index+1 
+    ingresotemp=ingresoProducto(ingreso)
+    if(ingreso!=null){
+    if  (ingresoValido(ingreso)){
+        if (ingresotemp.verStock()) {
+            carritoCompra.cargarStock(ingresotemp)
+            modificarStockDom(ingreso,ingresotemp)
+            localStorage.setItem("comprarLista", JSON.stringify(carritoCompra.listaCompra))         
+            localStorage.setItem("stockLista", JSON.stringify(stockTotal.arrayArticulos))         
+
+        }else{
+            alert("Momentaneamente este producto no tiene STOCK")
 
         }
     }
+    }
+    
 }
-}
+
+
+clickCompra()
 
 
 

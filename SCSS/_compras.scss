@@ -13,10 +13,11 @@
     grid-template-rows: auto;
     gap: 20px;
     justify-items: center;
+    padding-bottom: 20px;
     
     &__elementos{
         width: 300px;
-        height: 500px;
+        height: 570px;
         display: grid;
         align-content: space-between;
         border-radius: 5px;
@@ -33,12 +34,10 @@
             text-align: center;
         }
         button{
-            margin: 5%;
             width: 90%;
+            margin: 5%;
+            
         }
-        &:hover{
-            border: solid 6px gainsboro;
-            transform: scale(1.03);
-        }
+       
     }
 }

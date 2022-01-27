@@ -4,11 +4,16 @@
   font-family: Helvetica, 'Roboto', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+main {
   background-color: #1c1c1a;
+  min-height: 80%;
 }
 
 header {
   font-size: 1.5rem;
+  background-color: #1c1c1a;
 }
 
 header .nav-link {
@@ -30,7 +35,7 @@ header .nav-link {
 }
 
 .footer {
-  position: absolute boton;
+  background-color: #1c1c1a;
   padding-top: 5px;
 }
 
@@ -129,11 +134,12 @@ header .nav-link {
       grid-template-rows: auto;
   gap: 20px;
   justify-items: center;
+  padding-bottom: 20px;
 }
 
 .accesorios__elementos {
   width: 300px;
-  height: 500px;
+  height: 570px;
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: justify;
@@ -156,17 +162,7 @@ header .nav-link {
 }
 
 .accesorios__elementos button {
-  margin: 5%;
   width: 90%;
-}
-
-.accesorios__elementos:hover {
-  border: solid 6px gainsboro;
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
-}
-
-button {
-  background-color: 255;
+  margin: 5%;
 }
 /*# sourceMappingURL=Estilo.css.map */
