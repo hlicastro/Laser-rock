@@ -1,3 +1,4 @@
+//Carga los datos del localstorage
 if (localStorage.getItem("stockLista")!=null || localStorage.getItem("stockLista") != undefined){
     let stockJason = JSON.parse(localStorage.getItem("stockLista"));
     for (const i of stockJason) {
@@ -9,7 +10,8 @@ if (localStorage.getItem("stockLista")!=null || localStorage.getItem("stockLista
         }
     }
 }
-if (localStorage.getItem("comprarLista")!=null && localStorage.getItem("comprarLista") != undefined){
+//verifica que el srtorage tenga un valor valido
+if (localStorage.getItem("comprarLista")!=null && localStorage.getItem("comprarLista") != undefined && localStorage.getItem("comprarLista").length > 20){
     carritoCompra.listaCompra = JSON.parse(localStorage.getItem("comprarLista"));
     
 } 

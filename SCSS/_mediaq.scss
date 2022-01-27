@@ -1,0 +1,11 @@
+@media only screen and (min-width: 768px) {
+    .accesorios{
+        grid-template-columns: 1fr 1fr ;
+    }    
+}
+
+@media only screen and (min-width: 1024px) {
+    .accesorios{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

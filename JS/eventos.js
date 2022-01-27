@@ -1,3 +1,4 @@
+//eventos de click 
 let btnBuscar =document.getElementById(`btnBuscar`);
 btnBuscar.onclick =()=> {
     eliminarNodo()
