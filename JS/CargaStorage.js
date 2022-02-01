@@ -11,7 +11,7 @@ if (localStorage.getItem("stockLista")!=null || localStorage.getItem("stockLista
     }
 }
 //verifica que el srtorage tenga un valor valido
-if (localStorage.getItem("comprarLista")!=null && localStorage.getItem("comprarLista") != undefined && localStorage.getItem("comprarLista").length > 20){
+if ( localStorage.getItem("comprarLista").length > 60){
     carritoCompra.listaCompra = JSON.parse(localStorage.getItem("comprarLista"));
     
 } 

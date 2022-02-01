@@ -1,3 +1,4 @@
+
 function ingresoValido(ingreso){
     if (ingreso == null){
         return true;
@@ -24,7 +25,7 @@ function modificarStockDom(pos,ingresotemp){
     stockModificar[pos-1].textContent= "Hay en Stock: " + ingresotemp.stock
 
 }
-
+iniciarComprad()
 iniciarCompra()
 function comprar() {
 //se muestra el pedido final

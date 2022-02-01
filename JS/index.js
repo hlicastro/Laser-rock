@@ -21,7 +21,7 @@ class Articulo{
         this.stockVenta = stockVenta;
         this.imagen = imagen;
     }
-
+//verifica si el producti tiene stock
     verStock(){
         if (this.stock == 0){
             return false;
@@ -37,8 +37,7 @@ class Articulo{
 class CarritoDeCompras{
     constructor(){
         this.date = 1;
-        this.usuario= JSON.parse(localStorage.getItem("usuario"))
-        ;
+        this.usuario= JSON.parse(localStorage.getItem("usuario"));
         this.listaCompra= [];
         this.subTotal=0;
     }
@@ -48,7 +47,9 @@ class CarritoDeCompras{
         for (const item of carritoCompra.listaCompra){
             this.subTotal += (item.precio*item.stockVenta);
         }
+        return this.subTotal
     }
+    //agrega stock al array carrito
     cargarStock(valor){
         if(carritoCompra.listaCompra.length==0){
             carritoCompra.listaCompra.push(ingresotemp)
@@ -106,7 +107,7 @@ stockTotal.addArtc(articulo1)
 
 
 const iniciarCompra = () => {
-    /* genera html */
+    // DOM 
     const lista = document.querySelector(".accesorios")
     stockTotal.arrayArticulos.map((pedido) => {
         const miniContenedor = document.createElement('div')
@@ -124,7 +125,6 @@ const iniciarCompra = () => {
         importe.textContent = `$ ${pedido.precio}`
         stock.textContent = `Hay en Stock: ${pedido.stock}`
         stock.className ="stockMod"
-        image.width = 300
         boton.className= "art"+pedido.item
         boton.textContent = "Comprar"
 
@@ -137,4 +137,63 @@ const iniciarCompra = () => {
         miniContenedor.appendChild(boton)
 
     })
+}
+
+const iniciarComprad = () => {
+    // DOM 
+    console.log(carritoCompra.listaCompra)
+    const lista = document.querySelector(".modal-body")
+    carritoCompra.listaCompra.map((pedido) => {
+        const miniContenedor = document.createElement('div')
+        const artista = document.createElement("h3")
+        const titulo = document.createElement('p')
+        const importe = document.createElement('p')
+        const stock = document.createElement('h3')
+        const image = document.createElement('img')
+
+        
+
+        miniContenedor.className = "itemPedido conteiner"
+        artista.textContent = pedido.artista
+        titulo.textContent = pedido.titulo
+        importe.textContent = `Precio unitario $${pedido.precio}`
+        stock.textContent = `total: $${pedido.stockVenta*pedido.precio}`
+        stock.className ="stockMod"
+        image.src = pedido.imagen
+        image.width= "150"
+
+
+        lista.appendChild(miniContenedor)
+        miniContenedor.appendChild(artista)
+        miniContenedor.appendChild(titulo)
+        miniContenedor.appendChild(importe)
+        miniContenedor.appendChild(stock)
+        miniContenedor.appendChild(image)
+
+    })
+}
+$(".modal-header h5").append(` ${carritoCompra.usuario} Tu pedido esta compuesto: `);
+function comprasass() {
+    const lista = document.querySelector(".modal-body")
+    for (const a of stockTotal.arrayArticulos) {
+        const div = document.querySelector(`.articuloss`)
+        if (div!=null){
+            lista.removeChild(div)
+        }
+    }
+        
+for (const producto of carritoCompra.listaCompra) {
+    $(".modal-body").append(`<div class="articuloss m-1 border  inline-block mx-auto" >
+    <img style="width: 100px" src="${producto.imagen}">
+    <h5> ${producto.artista} - ${producto.titulo}</h5>
+    <h5> Con un valor unitario de $${producto.precio} Seleccionaste ${producto.stockVenta}</h5>
+    <h5> El total de los productos seleccionados es de $ ${producto.precio* producto.stockVenta}</h5>
+    </div>`);
+}
+carritoCompra.subTotalCalc()
+$(".modal-footer div").append(`<h5> El total del pedido es de: ${carritoCompra.subTotal}             </h5> <br> `);
+
+carritoCompra.subTotalCalc()
+$(".modal-footer div h5").remove();
+$(".modal-footer div").append(`<h5> El total del pedido es de: ${carritoCompra.subTotal} </h5> `);
 }
