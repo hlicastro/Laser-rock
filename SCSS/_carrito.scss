@@ -26,3 +26,28 @@
         line-height: 66px;
 	}
 }
+
+
+.modalCarrito{
+    width: 100%;
+    height: 300%;
+    background-color: rgba(0, 0, 0, 0.685);
+    position: absolute;
+    display: none;
+    
+}
+.modalBase{
+    background-color: azure;
+    width: 600px;
+    padding: 1rem;
+    border-radius: 6px;
+    
+}
+.articuloss{
+    background-color: azure;
+    
+}
+.articuloss h6 img{
+    padding: 5px;
+    display: inline-block;
+}

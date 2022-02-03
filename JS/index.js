@@ -93,9 +93,17 @@ const articulo5 = new Articulo(5, "Los Piojos", "Ay, Ay, Ay","CD",1560,9,1,"../i
 const articulo6 = new Articulo(6, "Spinetta", "No mires Atas","CD",2110,3,1,"../imagenes/tapas/Ya no mires atas Spinetta.jpg");
 const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,2,1, "../imagenes/tapas/ACDC Back In Black 1.jpg");
 const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2,1,"../imagenes/tapas/Hojo del huracan 1.jpg");
+const articulo9 = new Articulo(9, "La Renga", "Algun Rayo","CD",2075,2,1,"../imagenes/tapas/La renga Algun Rayo.jpg");
+const articulo10 = new Articulo(10, "La Renga", "Bailando en una pata","CD",1700,8,1,"../imagenes/tapas/La renga Bailando en una pata.jpg");
+const articulo11 = new Articulo(11, "La Renga", "La esquina del Infinito","CD",3175,5,1,"../imagenes/tapas/La renga La esquina del infinito.jpg");
+const articulo12 = new Articulo(12, "La Renga", "La renga","CD",1975,6,1,"../imagenes/tapas/La renga.png");
+const articulo13 = new Articulo(13, "La Renga", "Trueno Tierra","CD",3175,6,1,"../imagenes/tapas/La renga Trueno Tierra.jpg");
+const articulo14 = new Articulo(14, "Los Piojos", "Azul","CD",1655,9,1,"../imagenes/tapas/Los piojos Azul.jpg");
+const articulo15 = new Articulo(15, "Los Piojos ", "Ritual","CD",2105,2,1,"../imagenes/tapas/Los piojos Ritual.jpg");
+const articulo16 = new Articulo(16, "Los Piojos", "Chac Tu Chac","CD",1845,3,1,"../imagenes/tapas/Los_Piojos-Chac_Tu_Chac.jpg");
 
 
-stockTotal.addArtc(articulo1)
+    stockTotal.addArtc(articulo1)
     stockTotal.addArtc(articulo2)
     stockTotal.addArtc(articulo3)
     stockTotal.addArtc(articulo4)
@@ -103,6 +111,14 @@ stockTotal.addArtc(articulo1)
     stockTotal.addArtc(articulo6)
     stockTotal.addArtc(articulo7)
     stockTotal.addArtc(articulo8)
+    stockTotal.addArtc(articulo9)
+    stockTotal.addArtc(articulo10)
+    stockTotal.addArtc(articulo11)
+    stockTotal.addArtc(articulo12)
+    stockTotal.addArtc(articulo13)
+    stockTotal.addArtc(articulo14)
+    stockTotal.addArtc(articulo15)
+    stockTotal.addArtc(articulo16)
 
 
 
@@ -141,7 +157,6 @@ const iniciarCompra = () => {
 
 const iniciarComprad = () => {
     // DOM 
-    console.log(carritoCompra.listaCompra)
     const lista = document.querySelector(".modal-body")
     carritoCompra.listaCompra.map((pedido) => {
         const miniContenedor = document.createElement('div')
@@ -172,9 +187,15 @@ const iniciarComprad = () => {
 
     })
 }
-$(".modal-header h5").append(` ${carritoCompra.usuario} Tu pedido esta compuesto: `);
-function comprasass() {
-    const lista = document.querySelector(".modal-body")
+
+$(".modalHead").append(`<h4> ${carritoCompra.usuario} Tu pedido esta compuesto: </h4>`);
+
+function comprasCarrito() {
+    $('html, body').animate({scrollTop:0}, 'slow', function () {
+        
+    
+    $(".modalCarrito").delay(1000).fadeIn('slow');
+    const lista = document.querySelector(".modalBody")
     for (const a of stockTotal.arrayArticulos) {
         const div = document.querySelector(`.articuloss`)
         if (div!=null){
@@ -183,17 +204,17 @@ function comprasass() {
     }
         
 for (const producto of carritoCompra.listaCompra) {
-    $(".modal-body").append(`<div class="articuloss m-1 border  inline-block mx-auto" >
+    $(".modalBody").append(`<div class="articuloss m-1 border  inline-block mx-auto" >
     <img style="width: 100px" src="${producto.imagen}">
-    <h5> ${producto.artista} - ${producto.titulo}</h5>
+    <h6> ${producto.artista} - ${producto.titulo}</h6>
     <h5> Con un valor unitario de $${producto.precio} Seleccionaste ${producto.stockVenta}</h5>
     <h5> El total de los productos seleccionados es de $ ${producto.precio* producto.stockVenta}</h5>
     </div>`);
 }
 carritoCompra.subTotalCalc()
-$(".modal-footer div").append(`<h5> El total del pedido es de: ${carritoCompra.subTotal}             </h5> <br> `);
+$(".modalFooter").append(`<h5> El total del pedido es de: $${carritoCompra.subTotal}</h5> `);
 
 carritoCompra.subTotalCalc()
-$(".modal-footer div h5").remove();
-$(".modal-footer div").append(`<h5> El total del pedido es de: ${carritoCompra.subTotal} </h5> `);
-}
+$(".modalFooter h5").remove();
+$(".modalFooter").append(`<h5> El total del pedido es de: $${carritoCompra.subTotal} </h5> `);
+})}
