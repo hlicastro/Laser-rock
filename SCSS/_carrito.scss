@@ -23,7 +23,10 @@
     .btn-crd{
         width:63px;
         height:63px;
-        line-height: 66px;
+        font-size:40px;
+        line-height: 65px;
+
+
 	}
 }
 
@@ -38,7 +41,8 @@
 }
 .modalBase{
     background-color: azure;
-    width: 600px;
+    width: 90%;
+    max-width: 600PX;
     padding: 1rem;
     border-radius: 6px;
     
