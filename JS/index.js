@@ -8,6 +8,7 @@ class StockTotal {
     
     }
     
+    
 
 }
 class Articulo{
@@ -22,17 +23,7 @@ class Articulo{
         this.imagen = imagen;
     }
 //verifica si el producti tiene stock
-    verStock(){
-        if (this.stock == 0){
-            return false;
-        } else{
-            this.stock>0;
-            this.stock--
-            swal.fire("Agregaste con exito al carrito",`${this.titulo} de  ${this.artista}  por un valor de $ ${this.precio}`,"success")
-
-            return true;
-        }
-    } 
+    
 }
 class CarritoDeCompras{
     constructor(){
@@ -85,41 +76,20 @@ class CarritoDeCompras{
 
 const carritoCompra = new CarritoDeCompras();
 let  stockTotal = new StockTotal();
-const articulo1 = new Articulo(1, "La Renga", "Despedazados por mil partes","CD",1580, 2,1,"../imagenes/tapas/Despedazadopormilpartes.jpg")
-const articulo2 = new Articulo(2, "Divididos", "La era de la boludez","CD",1450, 4,1, "../imagenes/tapas/La_Era_de_la_Boludez.jpg")
-const articulo3 = new Articulo(3, "Las Pastillas del Abuelo", "2020","CD",1390,2,1,"../imagenes/tapas/Las pastillas del abuelo 2020.jpg")
-const articulo4 = new Articulo(4, "The Rolling Stones", "On Air","CD",2120,5,1,"../imagenes/tapas/On air Roling Stones.jpg");
-const articulo5 = new Articulo(5, "Los Piojos", "Ay, Ay, Ay","CD",1560,9,1,"../imagenes/tapas/piojos ayayay.jpg");
-const articulo6 = new Articulo(6, "Spinetta", "No mires Atas","CD",2110,3,1,"../imagenes/tapas/Ya no mires atas Spinetta.jpg");
-const articulo7 = new Articulo(7, "ACDC", "Back in Black","Vinilos",5850,2,1, "../imagenes/tapas/ACDC Back In Black 1.jpg");
-const articulo8 = new Articulo(8, "La Renga", "El Hojo Del Huracan","DVD",3175,2,1,"../imagenes/tapas/Hojo del huracan 1.jpg");
-const articulo9 = new Articulo(9, "La Renga", "Algun Rayo","CD",2075,2,1,"../imagenes/tapas/La renga Algun Rayo.jpg");
-const articulo10 = new Articulo(10, "La Renga", "Bailando en una pata","CD",1700,8,1,"../imagenes/tapas/La renga Bailando en una pata.jpg");
-const articulo11 = new Articulo(11, "La Renga", "La esquina del Infinito","CD",3175,5,1,"../imagenes/tapas/La renga La esquina del infinito.jpg");
-const articulo12 = new Articulo(12, "La Renga", "La renga","CD",1975,6,1,"../imagenes/tapas/La renga.png");
-const articulo13 = new Articulo(13, "La Renga", "Trueno Tierra","CD",3175,6,1,"../imagenes/tapas/La renga Trueno Tierra.jpg");
-const articulo14 = new Articulo(14, "Los Piojos", "Azul","CD",1655,9,1,"../imagenes/tapas/Los piojos Azul.jpg");
-const articulo15 = new Articulo(15, "Los Piojos ", "Ritual","CD",2105,2,1,"../imagenes/tapas/Los piojos Ritual.jpg");
-const articulo16 = new Articulo(16, "Los Piojos", "Chac Tu Chac","CD",1845,3,1,"../imagenes/tapas/Los_Piojos-Chac_Tu_Chac.jpg");
 
-
-    stockTotal.addArtc(articulo1)
-    stockTotal.addArtc(articulo2)
-    stockTotal.addArtc(articulo3)
-    stockTotal.addArtc(articulo4)
-    stockTotal.addArtc(articulo5)
-    stockTotal.addArtc(articulo6)
-    stockTotal.addArtc(articulo7)
-    stockTotal.addArtc(articulo8)
-    stockTotal.addArtc(articulo9)
-    stockTotal.addArtc(articulo10)
-    stockTotal.addArtc(articulo11)
-    stockTotal.addArtc(articulo12)
-    stockTotal.addArtc(articulo13)
-    stockTotal.addArtc(articulo14)
-    stockTotal.addArtc(articulo15)
-    stockTotal.addArtc(articulo16)
-
+$.ajax({
+    async: false,
+    type: "GET",
+    url: "../JS/articulos.json",
+    success: function (response) {
+        stockTotal.arrayArticulos=  response;
+        
+    },
+    error: function () {
+        alert("Error retrieving products");
+    }
+});
+console.log(stockTotal.arrayArticulos)
 
 
 const iniciarCompra = () => {
@@ -197,18 +167,17 @@ function comprasCarrito() {
     $(".modalCarrito").delay(1000).fadeIn('slow');
     const lista = document.querySelector(".modalBody")
     for (const a of stockTotal.arrayArticulos) {
-        const div = document.querySelector(`.articuloss`)
+        const div = document.querySelector(`.articuloModal`)
         if (div!=null){
             lista.removeChild(div)
         }
     }
         
 for (const producto of carritoCompra.listaCompra) {
-    $(".modalBody").append(`<div class="articuloss m-1 border  inline-block mx-auto" >
+    $(".modalBody").append(`<div class="articuloModal m-1 border  inline-block mx-auto" >
     <img style="width: 100px" src="${producto.imagen}">
     <h6> ${producto.artista} - ${producto.titulo}</h6>
-    <h5> Con un valor unitario de $${producto.precio} Seleccionaste ${producto.stockVenta}</h5>
-    <h5> El total de los productos seleccionados es de $ ${producto.precio* producto.stockVenta}</h5>
+    <h5> Con un valor unitario de $${producto.precio} X ${producto.stockVenta} unidades = $${producto.precio* producto.stockVenta}</h5>
     </div>`);
 }
 carritoCompra.subTotalCalc()

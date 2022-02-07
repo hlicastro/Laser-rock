@@ -11,10 +11,22 @@ function ingresoValido(ingreso){
     }
     return false;
 } 
+function verStock(ingresotemp){
+    if (ingresotemp.stock == 0){
+        return false;
+    } else{
+        ingresotemp.stock>0;
+        ingresotemp.stock--
+        swal.fire("Agregaste con exito al carrito",`${ingresotemp.titulo} de  ${ingresotemp.artista}  por un valor de $ ${ingresotemp.precio}`,"success")
+
+        return true;
+    }
+} 
 //Busca el producto ingresado 
 function ingresoProducto (ingreso){
     for (const iterator of stockTotal.arrayArticulos) {
         if (ingreso ==iterator.item){
+            console.log(iterator)
             return iterator
             
         }
@@ -113,7 +125,7 @@ function sumarArt(index) {
     ingresotemp=ingresoProducto(ingreso)
     if(ingreso!=null){
     if  (ingresoValido(ingreso)){
-        if (ingresotemp.verStock()) {
+        if (verStock(ingresotemp)) {
             carritoCompra.cargarStock(ingresotemp)
             modificarStockDom(ingreso,ingresotemp)
             localStorage.setItem("comprarLista", JSON.stringify(carritoCompra.listaCompra))         
