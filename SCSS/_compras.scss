@@ -34,6 +34,7 @@ button:hover{
     justify-items: center;
     padding-bottom: 20px;
     
+    
     &__elementos{
         width: 300px;
         height: 570px;
@@ -42,6 +43,8 @@ button:hover{
         border-radius: 5px;
         border: solid 1px gray;
         color: whitesmoke;
+        opacity: 0.7;
+        z-index: 1;
         img{
             width: 100%;
         }

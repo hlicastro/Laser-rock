@@ -1,4 +1,4 @@
 # Puestomascotas
-Mi nobre es Hogo Hernan Licastro 
+Mi nobre es Hugo Hernan Licastro 
 
 EL link del sitio es  https://hlicastro.github.io/Laser-rock/

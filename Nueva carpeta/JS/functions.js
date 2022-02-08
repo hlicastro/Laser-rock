@@ -1,3 +1,4 @@
+
 function ingresoValido(ingreso){
     if (ingreso == null){
         return true;
@@ -36,7 +37,8 @@ function modificarStockDom(pos,ingresotemp){
     stockModificar[pos-1].textContent= "Hay en Stock: " + ingresotemp.stock
 
 }
-
+iniciarComprad()
+iniciarCompra()
 function comprar() {
 //se muestra el pedido final
     carritoCompra.subTotalCalc()
@@ -95,7 +97,7 @@ function eliminarNodo() {
     if(buscar!=""){
     for (const a of stockTotal.arrayArticulos) {
         pos = pos +1
-        if(buscar.toUpperCase()!=a.artista.toUpperCase()){
+        if(buscar!=a.artista){
             const div = document.querySelector(`.accesorios__elementos:nth-child(${pos})`)
             lista.removeChild(div)
             pos = pos-1
@@ -115,7 +117,6 @@ function carritoDeCero() {
     limpiarPantalla()
     iniciarCompra()
     clickCompra()
-    mouseoverCompra()
 
 }
 //agrega item al carrito y actualiza el storage
@@ -138,4 +139,10 @@ function sumarArt(index) {
     }
     
 }
+
+
+clickCompra()
+
+
+
 

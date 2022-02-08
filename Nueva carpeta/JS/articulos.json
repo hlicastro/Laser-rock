@@ -1,0 +1,163 @@
+[
+    {
+            "item": 1,
+            "artista":"La Renga",
+            "titulo":"Despedazados por mil partes",
+            "tipo":"CD",
+            "precio":1580,
+            "stock":4,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Despedazadopormilpartes.jpg"
+        },
+        {
+            "item": 2,
+            "artista":"Divididos",
+            "titulo":"La era de la boludez",
+            "tipo":"CD",
+            "precio":"1450",
+            "stock":4,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/La_Era_de_la_Boludez.jpg"
+        },
+        {
+            "item": 3,
+            "artista":"Las Pastillas del Abuelo",
+            "titulo":"2020",
+            "tipo":"CD",
+            "precio":1496,
+            "stock":6,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Las pastillas del abuelo 2020.jpg"
+        },
+        {
+            "item": 4,
+            "artista":"The Rolling Stones",
+            "titulo":"On Air",
+            "tipo":"CD",
+            "precio":2160,
+            "stock":3,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/On air Roling Stones.jpg"
+        },
+        {
+            "item": 5,
+            "artista":"Los Piojos",
+            "titulo":"Ay, Ay, Ay",
+            "tipo":"CD",
+            "precio":1860,
+            "stock":4,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/piojos ayayay.jpg"
+        },
+        {
+            "item": 6,
+            "artista":"Spinetta",
+            "titulo":"No mires Atas",
+            "tipo":"CD",
+            "precio":2150,
+            "stock":3,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Ya no mires atas Spinetta.jpg"
+        },
+        {
+            "item": 7,
+            "artista":"ACDC",
+            "titulo":"Back in Black",
+            "tipo":"Vinilos",
+            "precio":5100,
+            "stock":2,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/ACDC Back In Black 1.jpg"
+        },
+        {
+            "item": 8,
+            "artista":"La Renga",
+            "titulo":"El Hojo Del Huracan",
+            "tipo":"DVD",
+            "precio":4600,
+            "stock":6,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Hojo del huracan 1.jpg"
+        },
+        {
+            "item": 9,
+            "artista":"La Renga",
+            "titulo":"Algun Rayo",
+            "tipo":"CD",
+            "precio":2300,
+            "stock":5,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/La renga Algun Rayo.jpg"
+        },
+        {
+            "item": 10,
+            "artista":"La Renga",
+            "titulo":"Bailando en una pata",
+            "tipo":"CD",
+            "precio":1600,
+            "stock":4,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/La renga Bailando en una pata.jpg"
+        },
+        {
+            "item": 11,
+            "artista":"La Renga",
+            "titulo":"La esquina del Infinito",
+            "tipo":"CD",
+            "precio":1500,
+            "stock":8,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/La renga La esquina del infinito.jpg"
+        },
+        {
+            "item": 12,
+            "artista":"La Renga",
+            "titulo":"La renga",
+            "tipo":"CD",
+            "precio":1890,
+            "stock":13,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/La renga.png"
+        },
+        {
+            "item": 13,
+            "artista":"La Renga",
+            "titulo":"Trueno Tierra",
+            "tipo":"CD",
+            "precio":2100,
+            "stock":2,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/La renga Trueno Tierra.jpg"
+        },
+        {
+            "item": 14,
+            "artista":"Los Piojos",
+            "titulo":"Azul",
+            "tipo":"CD",
+            "precio":1345,
+            "stock":4,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Los piojos Azul.jpg"
+        },
+        {
+            "item": 15,
+            "artista":"Los Piojos",
+            "titulo":"Ritual",
+            "tipo":"CD",
+            "precio":1456,
+            "stock":6,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Los piojos Ritual.jpg"
+        },
+        {
+            "item": 16,
+            "artista":"Los Piojos",
+            "titulo":"Chac Tu Chac",
+            "tipo":"CD",
+            "precio":1670,
+            "stock":4,
+            "stockVenta":1,
+            "imagen":"../imagenes/tapas/Los_Piojos-Chac_Tu_Chac.jpg"
+        }
+
+]

@@ -9,12 +9,9 @@ if (localStorage.getItem("stockLista")!=null || localStorage.getItem("stockLista
             }
         }
     }
-}else{
-    carritoDeCero()
 }
 //verifica que el srtorage tenga un valor valido
-if ( localStorage.getItem("comprarLista")!=null){
-        if(localStorage.getItem("comprarLista").length > 60){
-            carritoCompra.listaCompra = JSON.parse(localStorage.getItem("comprarLista"));
+if ( localStorage.getItem("comprarLista").length > 60){
+    carritoCompra.listaCompra = JSON.parse(localStorage.getItem("comprarLista"));
     
-} }
+} 

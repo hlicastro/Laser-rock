@@ -17,7 +17,7 @@ if (localStorage.getItem("usuario")!=null && localStorage.getItem("usuario") != 
             inputvalue:"usuario",
             inputPlaceholder:"ingresa tu nombre "       
         });
-        localStorage.setItem("usuario", JSON.stringify(usuario.toUpperCase()))
+        localStorage.setItem("usuario", JSON.stringify(usuario))
         sessionStorage.setItem("ingreso", JSON.stringify(1))
     })()
 }

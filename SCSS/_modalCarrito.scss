@@ -1,0 +1,40 @@
+.modalCarrito{
+    width: 100%;
+    height: 300%;
+    background-color: rgba(0, 0, 0, 0.685);
+    position: absolute;
+    display: none;
+    z-index:100;
+
+    
+}
+.modalBase{
+    background-color: azure;
+    width: 90%;
+    max-width: 600PX;
+    padding: 1rem;
+    border-radius: 6px;
+    z-index:100;
+
+    
+}
+.articuloModal{
+    border:  solid 1px grey;
+    margin-bottom: 8px;
+    padding: 6px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;    
+    h5{
+        margin-left: 1rem;
+    }
+}
+.modalFooter{
+    text-align: right;
+    color: #dc3545;
+}
+.modalHead{
+    text-align: center;
+    color: #dc3545;
+}
