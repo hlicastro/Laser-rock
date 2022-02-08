@@ -2,13 +2,10 @@
 class StockTotal {
     constructor() {
         this.arrayArticulos = []
-        
     }
     addArtc(pedido) {
         this.arrayArticulos.push(pedido)
-    
     }  
-
 }
 //Genera el array con el carrito de compras 
 class CarritoDeCompras{
@@ -39,8 +36,7 @@ class CarritoDeCompras{
                 v.stockVenta = v.stockVenta + 1
                 check=false
                 
-            }
-            
+            } 
         }
         if(check){
             carritoCompra.listaCompra.push(ingresotemp)
@@ -55,9 +51,7 @@ class CarritoDeCompras{
             listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} ${listar.stockVenta} \n`) 
         }
         return listaPedido 
-    }
-    
-    
+    }   
 }
 
 const carritoCompra = new CarritoDeCompras();

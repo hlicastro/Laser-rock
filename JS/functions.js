@@ -25,9 +25,7 @@ function verStock(ingresotemp){
 function ingresoProducto (ingreso){
     for (const iterator of stockTotal.arrayArticulos) {
         if (ingreso ==iterator.item){
-            console.log(iterator)
             return iterator
-            
         }
     }
 }
@@ -136,6 +134,5 @@ function sumarArt(index) {
         }
     }
     }
-    
 }
 

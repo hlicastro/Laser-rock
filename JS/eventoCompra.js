@@ -8,8 +8,7 @@ function clickCompra() {
     }}
     
 }
-// itera constantemente en la busqueda de un click y suma el item al carrito el item correspondiente
-
+// Verifica si pasan el mouse sobre las tarjetas de la seccion compras
 function mouseoverCompra() {
     
     for (let index = 0; index < stockTotal.arrayArticulos.length; index++) {
@@ -25,4 +24,3 @@ function mouseoverCompra() {
         });
     }
 }
-    
