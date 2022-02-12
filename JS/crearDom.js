@@ -1,6 +1,6 @@
 const iniciarCompra = () => {
     // DOM 
-    const lista = document.querySelector(".accesorios")
+    const listArt = document.querySelector(".accesorios")
     stockTotal.arrayArticulos.map((pedido) => {
         const miniContenedor = document.createElement('div')
         const image = document.createElement('img')
@@ -15,18 +15,24 @@ const iniciarCompra = () => {
         artista.textContent = pedido.artista
         titulo.textContent = pedido.titulo
         importe.textContent = `$ ${pedido.precio}`
-        stock.textContent = `Hay en Stock: ${pedido.stock}`
-        stock.className ="stockMod"
         boton.className= "art"+pedido.item
         boton.textContent = "Comprar"
+        stock.className ="stockMod" +pedido.item
 
-        lista.appendChild(miniContenedor)
+        if (pedido.stock==0) {
+            stock.textContent = `Momentaneamente sin stock`
+        }else{
+            stock.textContent = `Hay en Stock: ${pedido.stock}`          
+        }
+        
+        
+        listArt.appendChild(miniContenedor)
         miniContenedor.appendChild(image)
         miniContenedor.appendChild(artista)
         miniContenedor.appendChild(titulo)
         miniContenedor.appendChild(importe)
         miniContenedor.appendChild(stock)
         miniContenedor.appendChild(boton)
-
+        
     })
 }

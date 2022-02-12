@@ -3,9 +3,6 @@ class StockTotal {
     constructor() {
         this.arrayArticulos = []
     }
-    addArtc(pedido) {
-        this.arrayArticulos.push(pedido)
-    }  
 }
 //Genera el array con el carrito de compras 
 class CarritoDeCompras{
@@ -43,15 +40,6 @@ class CarritoDeCompras{
             
         }
     }}
-    //genera la lista final del pedido 
-    armarlistaFinal(){
-        let listaPedido= this.usuario +"\nTu pedido esta compusto por: "  + carritoCompra.listaCompra.length +" articulos, por un total de $" + carritoCompra.subTotal +"\n\nDETALLE \n"
-            let i=1
-            for (const listar of carritoCompra.listaCompra) {
-            listaPedido += (`${i++}- ${listar.titulo} de  ${listar.artista}  por un valor de $ ${listar.precio} ${listar.stockVenta} \n`) 
-        }
-        return listaPedido 
-    }   
 }
 
 const carritoCompra = new CarritoDeCompras();

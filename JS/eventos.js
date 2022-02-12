@@ -1,12 +1,11 @@
 //eventos de click con jquery
 $('#btnBuscar').on('click', function () { 
     eliminarNodo()})
-
 $('#btnRestaurar').on('click', function () {
     carritoDeCero()})
-
 $('#btnComprar').on('click', function () {
-    comprasCarrito()})
+    comprasCarrito()
+})
 $('#btnFinalizar').on('click', function () {
     if (carritoCompra.subTotal==0){
             swal.fire("Su carrito no tiene Articulos","","error")}
@@ -23,6 +22,7 @@ $('#btnFinalizar').on('click', function () {
             localStorage.setItem("comprarLista", JSON.stringify())
             localStorage.removeItem("carritoLista");            
             $(".modalCarrito").slideUp();    
+            
         }
 })
 $('#btnCacncelar').on('click', function () {

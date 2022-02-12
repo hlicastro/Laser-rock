@@ -5,7 +5,7 @@
             "titulo":"Despedazados por mil partes",
             "tipo":"CD",
             "precio":1580,
-            "stock":4,
+            "stock":1,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Despedazadopormilpartes.jpg"
         },
@@ -14,8 +14,8 @@
             "artista":"Divididos",
             "titulo":"La era de la boludez",
             "tipo":"CD",
-            "precio":"1450",
-            "stock":4,
+            "precio":1455,
+            "stock":1,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/La_Era_de_la_Boludez.jpg"
         },
@@ -25,7 +25,7 @@
             "titulo":"2020",
             "tipo":"CD",
             "precio":1496,
-            "stock":6,
+            "stock":1,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Las pastillas del abuelo 2020.jpg"
         },
@@ -35,7 +35,7 @@
             "titulo":"On Air",
             "tipo":"CD",
             "precio":2160,
-            "stock":3,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/On air Roling Stones.jpg"
         },
@@ -45,7 +45,7 @@
             "titulo":"Ay, Ay, Ay",
             "tipo":"CD",
             "precio":1860,
-            "stock":4,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/piojos ayayay.jpg"
         },
@@ -55,7 +55,7 @@
             "titulo":"No mires Atas",
             "tipo":"CD",
             "precio":2150,
-            "stock":3,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Ya no mires atas Spinetta.jpg"
         },
@@ -65,7 +65,7 @@
             "titulo":"Back in Black",
             "tipo":"Vinilos",
             "precio":5100,
-            "stock":2,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/ACDC Back In Black 1.jpg"
         },
@@ -75,7 +75,7 @@
             "titulo":"El Hojo Del Huracan",
             "tipo":"DVD",
             "precio":4600,
-            "stock":6,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Hojo del huracan 1.jpg"
         },
@@ -85,7 +85,7 @@
             "titulo":"Algun Rayo",
             "tipo":"CD",
             "precio":2300,
-            "stock":5,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/La renga Algun Rayo.jpg"
         },
@@ -95,7 +95,7 @@
             "titulo":"Bailando en una pata",
             "tipo":"CD",
             "precio":1600,
-            "stock":4,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/La renga Bailando en una pata.jpg"
         },
@@ -105,7 +105,7 @@
             "titulo":"La esquina del Infinito",
             "tipo":"CD",
             "precio":1500,
-            "stock":8,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/La renga La esquina del infinito.jpg"
         },
@@ -115,7 +115,7 @@
             "titulo":"La renga",
             "tipo":"CD",
             "precio":1890,
-            "stock":13,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/La renga.png"
         },
@@ -125,7 +125,7 @@
             "titulo":"Trueno Tierra",
             "tipo":"CD",
             "precio":2100,
-            "stock":2,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/La renga Trueno Tierra.jpg"
         },
@@ -135,7 +135,7 @@
             "titulo":"Azul",
             "tipo":"CD",
             "precio":1345,
-            "stock":4,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Los piojos Azul.jpg"
         },
@@ -145,7 +145,7 @@
             "titulo":"Ritual",
             "tipo":"CD",
             "precio":1456,
-            "stock":6,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Los piojos Ritual.jpg"
         },
@@ -155,7 +155,7 @@
             "titulo":"Chac Tu Chac",
             "tipo":"CD",
             "precio":1670,
-            "stock":4,
+            "stock":10,
             "stockVenta":1,
             "imagen":"../imagenes/tapas/Los_Piojos-Chac_Tu_Chac.jpg"
         }

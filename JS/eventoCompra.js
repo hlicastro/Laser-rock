@@ -9,8 +9,7 @@ function clickCompra() {
     
 }
 // Verifica si pasan el mouse sobre las tarjetas de la seccion compras
-function mouseoverCompra() {
-    
+function mouseoverCompra() { 
     for (let index = 0; index < stockTotal.arrayArticulos.length; index++) {
         let selector=".cont"+(index+1)
         $(selector).mouseover(function () { 
@@ -24,3 +23,27 @@ function mouseoverCompra() {
         });
     }
 }
+function clickBorrarArticulo() {
+    for (let index = 0; index <= stockTotal.arrayArticulos.length; index++) {
+        let selector = "#btnQuitarArt"+index
+      //  let articuloEliminar= ".articuloModal"+index
+        $(selector).click(function (e) { 
+            e.preventDefault();
+         //   $(articuloEliminar).remove();
+
+            for (const iterator of carritoCompra.listaCompra) {
+                if (iterator.item==index) {
+                    stockTotal.arrayArticulos[index-1].stock= stockTotal.arrayArticulos[index-1].stock+iterator.stockVenta
+                    carritoCompra.listaCompra.splice(carritoCompra.listaCompra.indexOf(iterator),1)
+                    comprasCarrito()
+                    modificarStockDom(iterator)
+                    localStorage.setItem("comprarLista", JSON.stringify(carritoCompra.listaCompra))         
+                    localStorage.setItem("stockLista", JSON.stringify(stockTotal.arrayArticulos))     
+                }
+            }
+        });
+    }
+}
+        
+
+

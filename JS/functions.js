@@ -29,51 +29,15 @@ function ingresoProducto (ingreso){
         }
     }
 }
-function modificarStockDom(pos,ingresotemp){
-    let stockModificar = document.getElementsByClassName("stockMod")
-    stockModificar[pos-1].textContent= "Hay en Stock: " + ingresotemp.stock
+function modificarStockDom(ingresotemp){
+    if (ingresotemp.stock==0) {
+        $(".stockMod"+ingresotemp.item).text("Momentaneamente sin stock");
 
+    }else{
+        $(".stockMod"+ingresotemp.item).text("Hay en Stock: " + ingresotemp.stock);
+    }
 }
 
-function comprar() {
-//se muestra el pedido final
-    carritoCompra.subTotalCalc()
-    if (carritoCompra.subTotal==0){
-        swal.fire("Su carrito no tiene Articulos","","error")}
-    else{
-        Swal.fire({
-            title: '¿Queres finalizar tu compra?',
-            icon: 'question',
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: 'Finalizar ',
-            denyButtonText: `Ver carrito`,
-        }).then((result) => {
-            if (result.isConfirmed) {
-    //uso el alert comun porque no me muestra en lista el detalle del pedido por el metodo en que se genera
-                alert(carritoCompra.armarlistaFinal())
-                swal.fire({
-                    title:"Muchas gracias por tu compra",
-                    text:"Tu pedido se gestiono satifactoriamente",
-                    icon:"success",
-                    timer:3000,
-                    position:"top",
-                    showConfirmButton:false,
-                })
-                carritoCompra.listaCompra=[]
-                localStorage.setItem("comprarLista", JSON.stringify())
-                localStorage.removeItem("carritoLista");            
-            }else if (result.isDenied) {
-    //uso el alert comun porque no me muestra en lista el detalle del pedido por el metodo en que se genera
-                alert(carritoCompra.armarlistaFinal())
-                    
-            }
-        })
-        
-
-}
-
-}
 //elimina los elementos de la pantalla compras que no se ajustan a la busqueda
 function limpiarPantalla() {
     const lista = document.querySelector(".accesorios")
@@ -82,8 +46,7 @@ function limpiarPantalla() {
         if (div!=null){
             lista.removeChild(div)
         }
-        }
-    
+    }
 }
 
 function eliminarNodo() {
@@ -98,7 +61,6 @@ function eliminarNodo() {
             lista.removeChild(div)
             pos = pos-1
         }
-        
     }
     if (pos==0) {
         swal.fire("No ingresaste un artista valido\n Intente nuevamente con otro artista","","error")
@@ -114,25 +76,22 @@ function carritoDeCero() {
     iniciarCompra()
     clickCompra()
     mouseoverCompra()
-
 }
 //agrega item al carrito y actualiza el storage
 function sumarArt(index) {
     ingreso = index+1 
     ingresotemp=ingresoProducto(ingreso)
     if(ingreso!=null){
-    if  (ingresoValido(ingreso)){
-        if (verStock(ingresotemp)) {
-            carritoCompra.cargarStock(ingresotemp)
-            modificarStockDom(ingreso,ingresotemp)
-            localStorage.setItem("comprarLista", JSON.stringify(carritoCompra.listaCompra))         
-            localStorage.setItem("stockLista", JSON.stringify(stockTotal.arrayArticulos))         
-
-        }else{
-            swal.fire("Momentaneamente este producto no tiene STOCK","Selecciona otro Articulo","error")
-
+        if(ingresoValido(ingreso)){
+            if (verStock(ingresotemp)) {
+                carritoCompra.cargarStock(ingresotemp)
+                modificarStockDom(ingresotemp)
+                localStorage.setItem("comprarLista", JSON.stringify(carritoCompra.listaCompra))         
+                localStorage.setItem("stockLista", JSON.stringify(stockTotal.arrayArticulos))               
+            }else{
+                swal.fire("Momentaneamente este producto no tiene STOCK","Selecciona otro Articulo","error")        
+            }
         }
-    }
     }
 }
 
