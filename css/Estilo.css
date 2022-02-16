@@ -188,6 +188,10 @@ button:hover {
   margin: 5%;
 }
 
+.botonOculto {
+  display: none;
+}
+
 .btn-crd {
   position: fixed;
   width: 90px;
