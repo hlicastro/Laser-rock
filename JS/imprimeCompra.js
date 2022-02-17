@@ -17,9 +17,9 @@ function comprasCarrito() {
             //cambiooo
             $(".modalBody").append(`<div" class="articuloModal  articuloModal${producto.item}" mx-auto" >
             <img style="width: 100px" src="${producto.imagen}">
-            <h5> ${producto.artista} - ${producto.titulo}</h5>
-            <h5> Con un valor unitario de $${producto.precio} X ${producto.stockVenta} unidades = $${producto.precio* producto.stockVenta}</h5>
+            <h5> ${producto.artista} - ${producto.titulo}   </h5>
             <button type="button" id="btnQuitarArt${producto.item}" >X</button>
+            <h5> Con un valor unitario de $${producto.precio} X ${producto.stockVenta} unidades = $${producto.precio* producto.stockVenta}</h5>
             </div>`);
             position = position + 1
         }

@@ -1,6 +1,6 @@
 //eventos de click con jquery
 $('#btnBuscar').on('click', function () { 
-    eliminarNodo()})
+    buscadorArtista()})
 $('#btnRestaurar').on('click', function () {
     carritoDeCero()})
 $('#btnComprar').on('click', function () {

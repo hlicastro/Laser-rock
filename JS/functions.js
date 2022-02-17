@@ -49,7 +49,7 @@ function limpiarPantalla() {
     }
 }
 
-function eliminarNodo() {
+function buscadorArtista() {
     let pos =0
     let buscar = document.getElementById('buscador').value
     const lista = document.querySelector(".accesorios")
