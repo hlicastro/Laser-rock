@@ -26,11 +26,8 @@ function mouseoverCompra() {
 function clickBorrarArticulo() {
     for (let index = 0; index <= stockTotal.arrayArticulos.length; index++) {
         let selector = "#btnQuitarArt"+index
-      //  let articuloEliminar= ".articuloModal"+index
         $(selector).click(function (e) { 
             e.preventDefault();
-         //   $(articuloEliminar).remove();
-
             for (const iterator of carritoCompra.listaCompra) {
                 if (iterator.item==index) {
                     stockTotal.arrayArticulos[index-1].stock= stockTotal.arrayArticulos[index-1].stock+iterator.stockVenta
