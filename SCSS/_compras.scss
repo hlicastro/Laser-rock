@@ -26,13 +26,13 @@ button:hover{
     }
 
 .accesorios{
-    margin: 5%;
+    margin-top: 5%;
     display: grid;
     grid-template-columns: 1fr ;
     grid-template-rows: auto;
     gap: 20px;
     justify-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 5%;
     
     
     &__elementos{
